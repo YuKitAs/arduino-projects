@@ -9,5 +9,5 @@
 * 220 μF Capacitor
 
 ### Software
-* Arduino IDE 1.8.9
+* Arduino IDE
 * [LiquidCrystal_I2C](https://github.com/johnrickman/LiquidCrystal_I2C) Library
