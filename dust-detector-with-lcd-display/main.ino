@@ -25,6 +25,7 @@ void setupLcd() {
 void setup()
 {
   setupLcd();
+  Serial.begin(9600);
   pinMode(ledPower,OUTPUT);
 }
 
@@ -46,6 +47,7 @@ void loop()
   
   lcd.setCursor(10,0);
   lcd.print(dustDensity); // mg*m^(-3)
+  Serial.println(dustDensity, 3);
 
   lcd.setCursor(0,1);
   if (dustDensity <= 0.035) {
