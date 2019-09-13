@@ -4,7 +4,7 @@ import serial
 from influxdb import InfluxDBClient
 
 ser = serial.Serial('/dev/ttyACM0', 9600)
-client = InfluxDBClient(host='localhost', port=8086)
+client = InfluxDBClient('localhost', 8086)
 client.switch_database('dust')
 
 while True:
