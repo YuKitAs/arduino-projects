@@ -1,6 +1,6 @@
 #include "HX711.h"
 
-HX711 scale(5, 6);
+HX711 scale(5, 6); // DT - D5, SCK - D6
 
 float calibration_factor = 50; // TODO: Modify the calibration factor
 float units;
@@ -31,8 +31,7 @@ void loop() {
     char temp = Serial.read();
     if (temp == '+') {
       calibration_factor += 1;
-    }
-    else if (temp == '-') {
+    } else if (temp == '-') {
       calibration_factor -= 1;
     }
   }
