@@ -13,7 +13,7 @@ void setup() {
 void loop() {
   LoadCell.update();
   float i = LoadCell.getData(); // weight in gram
-  Serial.println(i);
+  Serial.println(i, 2);
 
   delay(2000);
 }
