@@ -38,8 +38,8 @@ while True:
     try:
         if len(result_values) < num_stable_values:
             value = int(ser.readline().strip().decode('ascii'))
-            if int(value) > 0:
-                result_values.append(int(value))
+            if value > 0:
+                result_values.append(value)
             continue
         else:
             if has_valid_value(result_values):
