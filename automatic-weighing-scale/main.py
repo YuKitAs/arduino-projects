@@ -1,4 +1,5 @@
 import logging
+import statistics
 import time
 
 import serial
@@ -10,11 +11,12 @@ ser = serial.Serial('/dev/ttyACM0', 9600)
 client = InfluxDBClient('localhost', 8086)
 client.switch_database('weight')
 
-num_stable_values = 5
+num_read_values = 5
+interval = 86400
 
 
-def has_valid_value(values: list):
-    return values.count(values[0]) == num_stable_values
+def valid_values(values):
+    return statistics.stdev(values) < 1
 
 
 def write_value(value):
@@ -32,20 +34,20 @@ def write_value(value):
         client.write_points(json_body)
 
 
-result_values = []
+read_values = []
 
 while True:
     try:
-        if len(result_values) < num_stable_values:
+        if len(read_values) < num_read_values:
             value = int(ser.readline().strip().decode('ascii'))
             if value > 0:
-                result_values.append(value)
+                read_values.append(value)
             continue
         else:
-            if has_valid_value(result_values):
-                write_value(result_values[0])
-                time.sleep(86400)
+            if valid_values(read_values):
+                write_value(statistics.mean(read_values))
+                time.sleep(interval)
             else:
-                result_values = result_values[1:]
+                read_values = read_values[1:]
     except Exception as ex:
         logging.error(ex)
