@@ -10,7 +10,7 @@ ser = serial.Serial('/dev/ttyACM0', 9600)
 client = InfluxDBClient('localhost', 8086)
 client.switch_database('weight')
 
-num_stable_values = 10
+num_stable_values = 5
 
 
 def has_valid_value(values: list):
