@@ -1,6 +1,6 @@
 # Automatic Weighing Scale
 
-A scale to weigh a small animal lighter than 5kg. The weight value will be automatically recorded when the animal sits on the scale for 10 seconds, and at most once every 24 hours. The data will be sent to InfluxDB and monitored with a Grafana dashboard running on RPi.
+A scale to weigh a small animal lighter than 5kg. The weight value will be automatically recorded after the animal sits on the scale for 10 seconds, and at most once every 24 hours. The data will be sent to InfluxDB and monitored with a Grafana dashboard running on RPi.
 
 ## Components
 ### Hardware
