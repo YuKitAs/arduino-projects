@@ -5,7 +5,7 @@ void setup() {
 }
 
 void loop() {
-  liquid_level = digitalRead(5);
+  liquid_level = digitalRead(5); // D5
   if (liquid_level <= 0) {
     Serial.println(liquid_level);
   }
