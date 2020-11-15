@@ -5,14 +5,13 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 int sensorPin = 0;
 
-const int airVal = 617; // change to the value measured in the air
-const int waterVal = 270; // change to the value measured in the water
-int intervals = (airVal - waterVal) / 3;
+const int AIR_VAL = 617;
+const int WATER_VAL = 270;
 
 void setupLcd() {
   lcd.init();
   lcd.backlight();
-  lcd.setCursor(0, 0);
+  lcd.setCursor(0,0);
   lcd.print("Humidity:");
 }
 
@@ -22,16 +21,23 @@ void setup() {
 }
 
 void loop() {
-  int val = analogRead(sensorPin); // read soil moisture value
-  Serial.println(val);
+  int input = analogRead(sensorPin);
+  Serial.println(input);
+  int percentage = map(input, AIR_VAL, WATER_VAL, 0, 100);
+  Serial.println(percentage);
 
-  lcd.setCursor(0, 1);
-  if (val >= waterVal && val < (waterVal + intervals)) {
-    lcd.print("    Very wet    ");
-  } else if (val >= (waterVal + intervals) && val < (airVal - intervals)) {
-    lcd.print("      Wet       ");
-  } else if (val >= (airVal - intervals) && val <= airVal) {
+  char output[5];
+  sprintf(output, "%d%%", percentage);
+  lcd.setCursor(10,0);
+  lcd.print(output);
+
+  lcd.setCursor(0,1);
+  if (percentage >= 0 && percentage < 33) {
     lcd.print("      Dry       ");
+  } else if (percentage >= 33 && percentage < 66) {
+    lcd.print("      Wet       ");
+  } else if (percentage >= 66 && percentage <= 100) {
+    lcd.print("    Very wet    ");
   }
 
   delay(1000);
