@@ -26,7 +26,9 @@ void loop() {
   int percentage = map(input, AIR_VAL, WATER_VAL, 0, 100); // map to range [0, 100]
   Serial.println(percentage);
 
-  char output[5];
+  lcd.setCursor(10, 0);
+  lcd.print("    "); // clear value
+  char output[4];
   sprintf(output, "%d%%", percentage);
   lcd.setCursor(10, 0);
   lcd.print(output);
