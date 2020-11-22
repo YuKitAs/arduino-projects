@@ -22,15 +22,13 @@ void setupLcd() {
   lcd.print("Dust den:");
 }
 
-void setup()
-{
+void setup() {
   setupLcd();
   Serial.begin(9600);
   pinMode(ledPower,OUTPUT);
 }
 
-void loop()
-{ 
+void loop() {
   digitalWrite(ledPower,LOW); // power on the LED
   delayMicroseconds(samplingTime);
 
