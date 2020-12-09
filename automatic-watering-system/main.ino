@@ -3,7 +3,7 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-int sensorPin = 0; // A0
+int sensorPin = A0; // A0
 int pumpPin = 8; // D8
 
 int percentage = 0;
