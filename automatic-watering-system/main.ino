@@ -3,24 +3,26 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-int sensorPin = A0; // A0
-int pumpPin = 8; // D8
+const int sensorPin = A0; // A0
+const int pumpPin = 7; // D7
+
+const int AIR_VAL = 628; // change to the value measured in the air
+const int WATER_VAL = 270; // change to the value measured in the water
+
+const int threshold = 10; // threshold to trigger pump
+const int duration = 1000; // pump duration in milliseconds
 
 int percentage = 0;
-int threshold = 10; // threshold to trigger pump
-int duration = 1000; // pump duration in milliseconds
-
-const int AIR_VAL = 628;
-const int WATER_VAL = 270;
 
 void setup() {
+  initLcd();
+  
   Serial.begin(9600);
   pinMode(sensorPin, INPUT);
   pinMode(pumpPin, OUTPUT);
 }
 
 void loop() {
-  initLcd();
   displayVal();
 
   if (percentage < threshold) {
@@ -34,7 +36,6 @@ void loop() {
 
   delay(5000);
 }
-
 
 void initLcd() {
   lcd.init();
