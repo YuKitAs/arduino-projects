@@ -9,7 +9,7 @@ A device for watering plants automatically based on real-time soil moisture.
 * Arduino UNO
 * Capacitive Soil Moisture Sensor V2.0
 * 16x2 LCD with I2C Interface
-* 5V Single Channel Relay module
+* 5V Single Channel Relay Module
 * DC 4.5V/0.18A Mini Water Pump
 * Power supply for the pump
 * Tube(s)
