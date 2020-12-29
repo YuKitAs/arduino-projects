@@ -48,6 +48,10 @@ void displayVal() {
   Serial.println(input);
   percentage = map(input, AIR_VAL, WATER_VAL, 0, 100);
   Serial.println(percentage);
+  
+  if (percentage < 0) {
+    percentage = 0;
+  }
 
   lcd.setCursor(10,0);
   lcd.print("    ");
