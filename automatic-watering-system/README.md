@@ -19,6 +19,6 @@ A device for watering plants automatically based on real-time soil moisture.
 * IDE: Arduino IDE
 * Arduino Library: [LiquidCrystal_I2C](https://github.com/johnrickman/LiquidCrystal_I2C)
 
-### Connection
+## Connection
 
 ![](https://github.com/YuKitAs/arduino-projects/blob/master/automatic-watering-system/connection.png)
