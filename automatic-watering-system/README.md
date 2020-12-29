@@ -18,4 +18,4 @@ A device for watering plants automatically based on real-time soil moisture.
 
 ### Connection
 
-![https://github.com/YuKitAs/arduino-projects/blob/master/automatic-watering-system/connection.png]
+![](https://github.com/YuKitAs/arduino-projects/blob/master/automatic-watering-system/connection.png)
