@@ -2,7 +2,7 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define DHTPIN 2 // Digital pin connected to the DHT sensor
+#define DHTPIN 2 // D2 connected to the DHT sensor
 #define DHTTYPE DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
@@ -12,7 +12,6 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
   Serial.begin(9600);
-  Serial.println(F("DHT11 test!"));
 
   dht.begin();
   lcd.init();
