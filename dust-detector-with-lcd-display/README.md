@@ -8,7 +8,7 @@ A device to detect the dust density and update the detected value on the LCD dis
 * Arduino UNO
 * GP2Y1010AU0F Sharp Dust Sensor
 * 16x2 LCD Display with I2C Interface
-* 150 Ω Resitor
+* 150 Ω Resistor
 * 220 μF Capacitor
 
 ### Software

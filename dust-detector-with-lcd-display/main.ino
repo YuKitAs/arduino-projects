@@ -1,4 +1,4 @@
-#include <Wire.h> 
+#include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
 // Set the LCD address to 0x27 for a 16 chars and 2 line display
@@ -16,7 +16,7 @@ float calcVoltage = 0;
 float dustDensity = 0;
 
 void setupLcd() {
-  lcd.begin();
+  lcd.init();
   lcd.backlight();
   lcd.setCursor(0,0);
   lcd.print("Dust den:");
@@ -42,7 +42,7 @@ void loop() {
   calcVoltage = voMeasured * (5.0 / 1024.0);
   // linear eqaution taken from http://www.howmuchsnow.com/arduino/airquality/
   dustDensity = 0.17 * calcVoltage - 0.1;
-  
+
   lcd.setCursor(10,0);
   lcd.print(dustDensity); // mg*m^(-3)
   Serial.println(dustDensity, 3);
@@ -59,7 +59,7 @@ void loop() {
   } else if (dustDensity > 0.15 && dustDensity <= 0.25) {
     lcd.print("   VERY POOR    ");
   } else if (dustDensity > 0.25) {
-    lcd.print("    SERIOUS     "); 
+    lcd.print("    SERIOUS     ");
   }
 
   delay(1000);
