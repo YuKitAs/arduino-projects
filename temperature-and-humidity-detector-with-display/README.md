@@ -13,3 +13,7 @@
 
 * IDE: Arduino IDE
 * Arduino Library: [DHT Sensor Library](https://github.com/adafruit/DHT-sensor-library), [Adafruit Unified Sensor Lib](https://github.com/adafruit/Adafruit_Sensor), [LiquidCrystal_I2C](https://github.com/johnrickman/LiquidCrystal_I2C)
+
+## Connection
+
+![](https://github.com/YuKitAs/arduino-projects/blob/master/temperature-and-humidity-detector-with-display/connection.jpeg)
