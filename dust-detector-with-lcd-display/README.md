@@ -18,3 +18,6 @@ A device to detect the dust density and update the detected value on the LCD dis
 * Database: [InfluxDB](https://docs.influxdata.com/influxdb/v1.7/)
 * Database client: [InfluxDB-Python](https://github.com/influxdata/influxdb-python)
 * Monitoring platform: [Grafana](https://grafana.com/docs/installation/debian/)
+
+## Connection
+![](https://github.com/YuKitAs/arduino-projects/blob/master/dust-detector-with-lcd-display/connection.png)
