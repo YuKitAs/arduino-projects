@@ -16,3 +16,6 @@ A scale to weigh a small animal lighter than 5kg. The weight value will be autom
 * Database: InfluxDB
 * Database client: InfluxDB-Python
 * Monitoring platform: Grafana
+
+## Connection
+![](https://github.com/YuKitAs/arduino-projects/blob/master/automatic-weighing-scale/connection.png)
