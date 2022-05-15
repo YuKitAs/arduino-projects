@@ -16,3 +16,6 @@ A device with a non-contact liquid level sensor to detect liquid amount in the c
 * Database: [InfluxDB](https://docs.influxdata.com/influxdb/v1.7/)
 * Database client: [InfluxDB-Python](https://github.com/influxdata/influxdb-python)
 * Monitoring & Notification: [Grafana](https://grafana.com/docs/installation/debian/)
+
+## Connection
+![](https://github.com/YuKitAs/arduino-projects/blob/master/liquid-level-alarm/connection.png)
