@@ -16,4 +16,4 @@
 
 ## Connection
 
-![](https://github.com/YuKitAs/arduino-projects/blob/master/temperature-and-humidity-detector-with-display/connection.jpeg)
+![](https://github.com/YuKitAs/arduino-projects/blob/master/temperature-and-humidity-detector-with-lcd/connection.jpeg)
