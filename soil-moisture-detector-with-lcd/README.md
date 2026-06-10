@@ -16,4 +16,4 @@ A device to detect and display real-time soil moisture relative to the air (min 
 * Arduino Library: [LiquidCrystal_I2C](https://github.com/johnrickman/LiquidCrystal_I2C)
 
 ## Connection
-![](https://raw.githubusercontent.com/YuKitAs/arduino-projects/master/soil-moisture-detector-with-lcd-display/connection.png)
+![](https://raw.githubusercontent.com/YuKitAs/arduino-projects/master/soil-moisture-detector-with-lcd/connection.png)
