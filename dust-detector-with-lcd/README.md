@@ -1,13 +1,13 @@
-# Dust Detector with LCD Display
+# Dust Detector with LCD
 
-A device to detect the dust density and update the detected value on the LCD display in real-time. The data will be sent to InfluxDB and monitored with a Grafana dashboard running on RPi.
+A device to detect the dust density and update the detected value on the LCD in real-time. The data will be sent to InfluxDB and monitored with a Grafana dashboard running on RPi.
 
 ## Components
 ### Hardware
 * Raspberry Pi 4 Model B
 * Arduino UNO
 * GP2Y1010AU0F Sharp Dust Sensor
-* 16x2 LCD Display with I2C Interface
+* 16x2 LCD with I2C Interface
 * 150 Ω Resistor
 * 220 μF Capacitor
 

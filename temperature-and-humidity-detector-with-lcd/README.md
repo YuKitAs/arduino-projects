@@ -1,4 +1,4 @@
-# Temperature and Humidity Detector with Display
+# Temperature and Humidity Detector with LCD
 
 ## Components
 
@@ -7,7 +7,7 @@
 * Arduino UNO
 * DHT11 Temperature & Humidity Sensor (4 pins)
 * 10k Ω Resistor
-* 16x2 LCD Display with I2C Interface
+* 16x2 LCD with I2C Interface
 
 ### Software
 

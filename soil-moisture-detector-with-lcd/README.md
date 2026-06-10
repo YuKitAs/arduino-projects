@@ -1,4 +1,4 @@
-# Soil Moisture Detector with LCD Display
+# Soil Moisture Detector with LCD
 
 A device to detect and display real-time soil moisture relative to the air (min humidity) and the water (max humidity).
 
@@ -8,7 +8,7 @@ A device to detect and display real-time soil moisture relative to the air (min 
 
 * Arduino UNO
 * Capacitive Soil Moisture Sensor v2.0
-* 16x2 LCD Display with I2C Interface
+* 16x2 LCD with I2C Interface
 
 ### Software
 
