@@ -71,8 +71,6 @@ void displayWeather() {
   int rainChance = doc["daily"]["precipitation_probability_max"][0];
 
   lcd.setCursor(0, 1);
-  lcd.print("                ");
-  lcd.setCursor(0, 1);
 
   int8_t icon = weatherIcon(weatherCode);
 
@@ -132,7 +130,6 @@ void setup() {
   while (!getLocalTime(&t)) {
     delay(500);
   }
-
 
   lcd.createChar(0, sunny);
   lcd.createChar(1, cloudy);
