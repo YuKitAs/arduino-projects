@@ -13,11 +13,11 @@ Rain:53%
 
 ## Components
 
-**Hardware**
+### Hardware
 * ESP32
 * 20x4 LCD with I2C Interface
 
-**Software**
+### Software
 * IDE: Arduino IDE
 * Arduino Library: [LiquidCrystal_I2C](https://github.com/johnrickman/LiquidCrystal_I2C), [ArduinoJson 7](https://github.com/bblanchon/ArduinoJson)
 
