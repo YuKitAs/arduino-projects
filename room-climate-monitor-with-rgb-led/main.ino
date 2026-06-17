@@ -36,11 +36,11 @@ void setup() {
   pinMode(R_PIN, OUTPUT);
   pinMode(G_PIN, OUTPUT);
   pinMode(B_PIN, OUTPUT);
+
+  delay(1000);
 }
 
 void loop() {
-  delay(2000);
-
   // Read temperature as Celsius
   float tf = bme.readTemperature();
   int t = isnan(tf) ? 0 : (int)tf;
@@ -74,4 +74,6 @@ void loop() {
   analogWrite(R_PIN, r);
   analogWrite(G_PIN, g);
   analogWrite(B_PIN, b);
+
+  delay(60000);
 }
