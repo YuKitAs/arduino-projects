@@ -27,7 +27,8 @@ void temperatureToRGB(int temp, int &r, int &g, int &b) {
 }
 
 void setup() {
-  Serial.begin(9600);
+  Wire.begin();
+
   bme.begin(0x76);
   lcd.init();
   lcd.backlight();
@@ -58,11 +59,11 @@ void loop() {
   lcd.print(t);
   lcd.print("\xDF"
             "C");
-  
+
   lcd.print(" H:");
   lcd.print(h);
   lcd.print("%");
-  
+
   lcd.setCursor(0, 1);
   lcd.print("P:");
   lcd.print(p);
