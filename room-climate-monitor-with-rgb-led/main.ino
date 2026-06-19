@@ -24,11 +24,13 @@ void temperatureToRGB(int temp, int &r, int &g, int &b) {
   } else {
     // 15-22°C: blue -> green; 22-30°C green -> red
     if (temp <= 22) {
+      r = 0;
       g = map(temp * 10, 150, 220, 0, 255);
       b = map(temp * 10, 150, 220, 255, 0);
     } else {
       r = map(temp * 10, 220, 300, 0, 255);
       g = map(temp * 10, 220, 300, 255, 0);
+      b = 0;
     }
   }
 }
