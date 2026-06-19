@@ -11,18 +11,25 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 #define B_PIN 8  // D8
 
 void temperatureToRGB(int temp, int &r, int &g, int &b) {
-  temp = constrain(temp, 0, 40);
-
-  if (temp <= 22) {
-    // Blue -> Green
+  if (temp <= 15) {
+    // blue
     r = 0;
-    g = map(temp, 0, 22, 0, 255);
-    b = map(temp, 0, 22, 255, 0);
-  } else {
-    // Green -> Red
-    r = map(temp, 22, 40, 0, 255);
-    g = map(temp, 22, 40, 255, 0);
+    g = 0;
+    b = 255;
+  } else if (temp >= 30) {
+    // red
+    r = 255;
+    g = 0;
     b = 0;
+  } else {
+    // 15-22°C: blue -> green; 22-30°C green -> red
+    if (temp <= 22) {
+      g = map(temp * 10, 150, 220, 0, 255);
+      b = map(temp * 10, 150, 220, 255, 0);
+    } else {
+      r = map(temp * 10, 220, 300, 0, 255);
+      g = map(temp * 10, 220, 300, 255, 0);
+    }
   }
 }
 
