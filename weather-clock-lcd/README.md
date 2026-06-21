@@ -1,6 +1,8 @@
 # Weather Clock LCD
 
-Display current date, time, room temperature and location-based weather information on a 20x4 LCD using ESP32 and WiFi like:
+ESP32-based weather station display for a 20x4 LCD. It shows the current date, time, indoor temperature, and local weather information retrieved from the [Open-Meteo API](https://open-meteo.com/) via WiFi. The display is updated periodically with separate refresh intervals for time, sensor data, and weather forecasts.
+
+Example output:
 
 ```
 2026-05-01 Thu 18:25
@@ -9,7 +11,9 @@ Room:20°C
 W:9km/h R:53%
 ```
 
-**Note**: The weather icons are displayed using custom 5x8 bitmaps that can be edited in `custom-bitmaps.h`.
+**Note**: 
+* WiFi SSID, password, and location coordinates must be configured in `config.h`.
+* The weather icons are displayed using custom 5x8 bitmaps that can be edited in `custom-bitmaps.h`.
 
 ## Components
 
