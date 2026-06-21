@@ -1,6 +1,26 @@
 # arduino-projects
 
-For Arduino sketches compiled by the Arduino IDE, the sketch folder name and the main `.ino` filename must match.
+## Notes
+
+* For Arduino sketches compiled by the Arduino IDE, the sketch folder name and the main `.ino` filename must match.
+
+* I2C scanner:
+
+  ```cpp
+  void setup() {
+    Serial.begin(115200);
+    Wire.begin();
+
+    for (byte addr = 1; addr < 127; addr++) {
+      Wire.beginTransmission(addr);
+
+      if (Wire.endTransmission() == 0) {
+        Serial.print("Found device at 0x");
+        Serial.println(addr, HEX);
+      }
+    }
+  }
+  ```
 
 ## Troubleshooting
 ### Avrdude stk500 not in sync
