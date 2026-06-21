@@ -4,10 +4,18 @@
 #include <time.h>
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
+#include <Adafruit_BME280.h>
 #include "./custom-bitmaps.h"
 #include "./config.h"
 
+Adafruit_BME280 bme;
+
 LiquidCrystal_I2C lcd(0x27, 20, 4);
+
+void clearLine(uint8_t row) {
+  lcd.setCursor(0, row);
+  lcd.print("                    ");  // 20 whitespaces
+}
 
 void displayTime() {
   struct tm t;
@@ -28,6 +36,17 @@ void displayTime() {
   lcd.print(days[t.tm_wday]);
   lcd.setCursor(15, 0);
   lcd.print(timebuf);
+}
+
+void displayTemp() {
+  float tf = bme.readTemperature();
+  int t = isnan(tf) ? 0 : (int)tf;
+
+  clearLine(1);
+  lcd.setCursor(0, 1);
+  lcd.print("Room:");
+  lcd.print(t);
+  lcd.write(4);
 }
 
 const int8_t weatherIcon(int code) {
@@ -70,7 +89,8 @@ void displayWeather() {
   float minTemp = doc["daily"]["temperature_2m_min"][0];
   int rainChance = doc["daily"]["precipitation_probability_max"][0];
 
-  lcd.setCursor(0, 1);
+  clearLine(2);
+  lcd.setCursor(0, 2);
 
   int8_t icon = weatherIcon(weatherCode);
 
@@ -79,16 +99,11 @@ void displayWeather() {
   else
     lcd.print('?');
 
-  lcd.setCursor(2, 1);
+  lcd.setCursor(2, 2);
   lcd.print((int)temp);
   lcd.write(4);
 
-  lcd.print(" W:");
-  lcd.print((int)windSpeed);
-  lcd.print("km/h");
-
-  lcd.setCursor(0, 2);
-  lcd.print("H:");
+  lcd.print(" H:");
   lcd.print((int)maxTemp);
   lcd.write(4);
 
@@ -96,8 +111,13 @@ void displayWeather() {
   lcd.print((int)minTemp);
   lcd.write(4);
 
+  clearLine(3);
   lcd.setCursor(0, 3);
-  lcd.print("Rain:");
+  lcd.print("W:");
+  lcd.print((int)windSpeed);
+  lcd.print("km/h");
+
+  lcd.print(" R:");
   lcd.print(rainChance);
   lcd.print("%");
 
@@ -108,6 +128,7 @@ void displayWeather() {
 void setup() {
   Wire.begin(21, 22);
 
+  bme.begin(0x76);
   lcd.init();
   lcd.backlight();
   lcd.setCursor(0, 0);
@@ -125,7 +146,7 @@ void setup() {
   struct tm t;
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Syncing time...");
+  lcd.print("Syncing...");
 
   while (!getLocalTime(&t)) {
     delay(500);
@@ -139,6 +160,7 @@ void setup() {
 
   lcd.clear();
   displayTime();
+  displayTemp();
   displayWeather();
 }
 
@@ -154,7 +176,14 @@ void loop() {
   if (millis() - lastTick >= 10000) {  // refresh time every 10s
     lastTick = millis();
     displayTime();
-    if (++tickCount >= 90) {  // refresh weather every 15min (90 * 10s)
+
+    tickCount++;
+
+    if (tickCount % 6 == 0) {  // refresh room temperature every 60s (6 * 10s)
+      displayTemp();
+    }
+
+    if (tickCount >= 90) {  // refresh weather every 15min (90 * 10s)
       displayWeather();
       tickCount = 0;
     }
