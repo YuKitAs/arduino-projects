@@ -1,5 +1,7 @@
 # arduino-projects
 
+For Arduino sketches compiled by the Arduino IDE, the sketch folder name and the main `.ino` filename must match.
+
 ## Troubleshooting
 ### Avrdude stk500 not in sync
 
