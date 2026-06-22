@@ -38,15 +38,22 @@ void displayTime() {
   lcd.print(timebuf);
 }
 
-void displayTemp() {
+void displayTempAndHumidity() {
   float tf = bme.readTemperature();
   int t = isnan(tf) ? 0 : (int)tf;
 
+  float hf = bme.readHumidity();
+  int h = isnan(hf) ? 0 : (int)hf;
+
   clearLine(1);
   lcd.setCursor(0, 1);
-  lcd.print("Room:");
+  lcd.print("Room T:");
   lcd.print(t);
   lcd.write(4);
+
+  lcd.print(" H:");
+  lcd.print(h);
+  lcd.print("%");
 }
 
 const int8_t weatherIcon(int code) {
@@ -160,7 +167,7 @@ void setup() {
 
   lcd.clear();
   displayTime();
-  displayTemp();
+  displayTempAndHumidity();
   displayWeather();
 }
 
@@ -179,8 +186,8 @@ void loop() {
 
     tickCount++;
 
-    if (tickCount % 6 == 0) {  // refresh room temperature every 60s (6 * 10s)
-      displayTemp();
+    if (tickCount % 6 == 0) {  // refresh room climate every 60s (6 * 10s)
+      displayTempAndHumidity();
     }
 
     if (tickCount >= 90) {  // refresh weather every 15min (90 * 10s)
