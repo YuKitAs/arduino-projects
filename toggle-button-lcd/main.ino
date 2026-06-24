@@ -17,8 +17,6 @@ int lastRawBtnState = HIGH;  // raw GPIO read (HIGH = unpressed)
 int stableBtnState = HIGH;   // debounced state (HIGH = unpressed)
 
 void setup() {
-  Serial.begin(115200);
-
   pinMode(BUTTON_PIN, INPUT_PULLUP);
 
   Wire.begin(21, 22);
