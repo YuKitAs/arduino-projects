@@ -8,7 +8,7 @@
 
   ```cpp
   void setup() {
-    Serial.begin(115200);
+    Serial.begin(9600); // or 115200 for ESP32
     Wire.begin();
 
     for (byte addr = 1; addr < 127; addr++) {
