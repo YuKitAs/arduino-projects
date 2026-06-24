@@ -1,4 +1,4 @@
-# Weather Clock LCD
+# ESP32 Weather Clock LCD
 
 ESP32-based weather station display for a 20x4 LCD. It shows the current date, time, indoor temperature, indoor humidity, and local weather information retrieved from the [Open-Meteo API](https://open-meteo.com/) via WiFi. The display is updated periodically with separate refresh intervals for time, sensor data, and weather forecasts.
 
